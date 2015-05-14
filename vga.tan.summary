@@ -1,0 +1,46 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 13.727 ns
+From           : vga_control:U1|vsync_control:U3|y[3]
+To             : VGA_B[4]
+From Clock     : CLOCK_50
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Clock Setup: 'vga_control:U1|pll_85mz:U1|altpll:altpll_component|_clk0'
+Slack          : 6.390 ns
+Required Time  : 85.01 MHz ( period = 11.764 ns )
+Actual Time    : 186.08 MHz ( period = 5.374 ns )
+From           : vga_control:U1|hsync_control:U2|point_count[5]
+To             : vga_control:U1|hsync_control:U2|x[0]
+From Clock     : vga_control:U1|pll_85mz:U1|altpll:altpll_component|_clk0
+To Clock       : vga_control:U1|pll_85mz:U1|altpll:altpll_component|_clk0
+Failed Paths   : 0
+
+Type           : Clock Hold: 'vga_control:U1|pll_85mz:U1|altpll:altpll_component|_clk0'
+Slack          : 0.391 ns
+Required Time  : 85.01 MHz ( period = 11.764 ns )
+Actual Time    : N/A
+From           : vga_control:U1|hsync_control:U2|h_blank
+To             : vga_control:U1|hsync_control:U2|h_blank
+From Clock     : vga_control:U1|pll_85mz:U1|altpll:altpll_component|_clk0
+To Clock       : vga_control:U1|pll_85mz:U1|altpll:altpll_component|_clk0
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

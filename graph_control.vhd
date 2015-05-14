@@ -1,0 +1,75 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY graph_control IS
+PORT(
+	in_x: IN STD_LOGIC_VECTOR(10 DOWNTO 0);
+	in_y: IN STD_LOGIC_VECTOR(10 DOWNTO 0);
+	R:OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+	G:OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+	B:OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+	);
+END  graph_control;
+
+ARCHITECTURE main OF graph_control IS
+
+SIGNAL x: INTEGER RANGE 0 TO 1367;
+SIGNAL y: INTEGER RANGE 0 TO 767;
+SIGNAL color: INTEGER RANGE 0 TO 7;
+
+
+BEGIN
+x <= conv_integer(in_x);
+y <= conv_integer(in_y);
+	PROCESS(x, y)
+	BEGIN
+		IF (884-x-y = 0 AND x >= 284 AND y >= 200) THEN
+			color <= 7;
+		ELSIF(x-484-y = 0 AND (x <= 1084 AND y >= 200)) THEN
+			color <= 7;
+		ELSIF(y = 600 AND (x >= 284 AND x <= 1084)) THEN
+			color <= 7;
+		ELSE
+			color <= 0;
+		END IF;
+	END PROCESS;
+	PROCESS(color)
+	BEGIN
+		IF (color = 0) THEN
+			R<="0000000000";
+			G<="0000000000";
+			B<="0000000000";
+		ELSIF (color = 1) THEN
+			R<="0000000000";
+			G<="0000000000";
+			B<="1111111111";
+		ELSIF (color = 2) THEN
+			R<="0000000000";
+			G<="1111111111";
+			B<="0000000000";
+		ELSIF (color = 3) THEN
+			R<="0000000000";
+			G<="1111111111";
+			B<="1111111111";
+		ELSIF (color = 4) THEN
+			R<="1111111111";
+			G<="0000000000";
+			B<="0000000000";
+		ELSIF (color = 5) THEN
+			R<="1111111111";
+			G<="0000000000";
+			B<="1111111111";
+		ELSIF (color = 6) THEN
+			R<="1111111111";
+			G<="1111111111";
+			B<="0000000000";
+		ELSE
+			R<="1111111111";
+			G<="1111111111";
+			B<="1111111111";
+		END IF;
+	END PROCESS;
+
+END main;
